@@ -28,10 +28,10 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Mai
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         findById();
         initComponents();
         mainPresenter.getData();
+
     }
 
 
