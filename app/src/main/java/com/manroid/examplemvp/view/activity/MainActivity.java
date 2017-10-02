@@ -8,12 +8,13 @@ import android.widget.Toast;
 
 import com.manroid.examplemvp.R;
 import com.manroid.examplemvp.adapter.AdapterUser;
+import com.manroid.examplemvp.interfaces.MainShow;
 import com.manroid.examplemvp.model.DataManager;
 import com.manroid.examplemvp.presenter.MainPresenter;
 import com.manroid.examplemvp.util.Util;
 import com.manroid.examplemvp.view.dialog.ConfirmDialog;
 
-public class MainActivity extends AppCompatActivity implements MainPresenter.MainView{
+public class MainActivity extends AppCompatActivity implements MainPresenter.MainView,MainShow{
 
     private RecyclerView rcvUSer;
     private MainPresenter mainPresenter;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Mai
         dbManager = new DataManager();
         mainPresenter = new MainPresenter(this, dbManager);
 
-        adapter = new AdapterUser(mainPresenter);
+        adapter = new AdapterUser(mainPresenter,this);
         confirmDialog = new ConfirmDialog(this, mainPresenter);
 
     }
@@ -74,5 +75,10 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Mai
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void show() {
+        showToast(mainPresenter.getUser().getName() + " - " + mainPresenter.getUser().getAddress());
     }
 }

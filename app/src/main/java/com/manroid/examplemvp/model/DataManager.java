@@ -18,7 +18,7 @@ public class DataManager {
 
     public ArrayList<User> initListUser() {
         for (int i = 0; i < 100; i++) {
-            listUser.add(new User("Jack Staham " + i , "USA " + i));
+            listUser.add(new User("Adele Laurie " + i , "USA " + i));
         }
 
         return listUser;

@@ -3,6 +3,7 @@ package com.manroid.examplemvp.presenter;
 import com.manroid.examplemvp.interfaces.MainAction;
 import com.manroid.examplemvp.model.DataManager;
 import com.manroid.examplemvp.model.MainInteractor;
+import com.manroid.examplemvp.model.entity.User;
 
 /**
  * Created by manro on 29/09/2017.
@@ -23,6 +24,11 @@ public class MainPresenter implements MainAction,MainInteractor.OnUserFinishList
     public void onClickDeleteItem(int position) {
         mainInteractor.setCurrentPosition(position);
         mainView.showConfirmDialog();
+    }
+
+
+    public void getInfor(int position){
+        mainInteractor.setCurrentPosition(position);
     }
 
 
@@ -48,14 +54,22 @@ public class MainPresenter implements MainAction,MainInteractor.OnUserFinishList
         mainView.showDeleteCompleteOnToast();
     }
 
+
     @Override
     public void getData() {
         mainInteractor.getData();
     }
 
+
     @Override
     public void deleteUser() {
         mainInteractor.deleteUser();
+    }
+
+
+    @Override
+    public User getUser() {
+        return mainInteractor.getUser();
     }
 
 

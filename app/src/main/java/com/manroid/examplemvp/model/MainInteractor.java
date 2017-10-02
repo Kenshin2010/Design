@@ -3,6 +3,7 @@ package com.manroid.examplemvp.model;
 import android.os.AsyncTask;
 
 import com.manroid.examplemvp.interfaces.MainAction;
+import com.manroid.examplemvp.model.entity.User;
 
 /**
  * Created by manro on 29/09/2017.
@@ -85,6 +86,11 @@ public class MainInteractor implements MainAction{
 
 
         new DeleteUserTask().execute();
+    }
+
+    @Override
+    public User getUser() {
+        return data.getNoteAt(currentPosition);
     }
 
 

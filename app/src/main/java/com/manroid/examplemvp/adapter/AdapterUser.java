@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.manroid.examplemvp.R;
+import com.manroid.examplemvp.interfaces.MainShow;
 import com.manroid.examplemvp.model.entity.User;
 import com.manroid.examplemvp.presenter.MainPresenter;
 
@@ -21,12 +22,14 @@ import java.util.ArrayList;
 public class AdapterUser extends RecyclerView.Adapter<AdapterUser.Holder> {
 
     private MainPresenter mainPresenter;
+    private MainShow mainShow;
 
     private ArrayList<User> listUser;
 
 
-    public AdapterUser(MainPresenter mainPresenter) {
+    public AdapterUser(MainPresenter mainPresenter,MainShow mainShow) {
         this.mainPresenter = mainPresenter;
+        this.mainShow = mainShow;
     }
 
 
@@ -81,6 +84,15 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.Holder> {
                 @Override
                 public void onClick(View view) {
                     mainPresenter.onClickDeleteItem(getAdapterPosition());
+                }
+            });
+
+
+            lnUser.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mainPresenter.getInfor(getAdapterPosition());
+                    mainShow.show();
                 }
             });
         }
