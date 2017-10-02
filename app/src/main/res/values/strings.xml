@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ExampleMvp</string>
     <string name="delete_user">Delete user complete</string>
-    <string name="xac_nhan">Xác nhận</string>
-    <string name="ban_co_muon_xoa">Bạn có muốn xóa ?</string>
+    <string name="xac_nhan">Confirm</string>
+    <string name="ban_co_muon_xoa">Do you want delete ?</string>
     <string name="close">Close</string>
 </resources>
