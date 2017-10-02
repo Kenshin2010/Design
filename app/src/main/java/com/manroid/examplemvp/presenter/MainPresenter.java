@@ -19,10 +19,12 @@ public class MainPresenter implements MainAction,MainInteractor.OnUserFinishList
         this.mainView = mainView;
     }
 
+
     public void onClickDeleteItem(int position) {
         mainInteractor.setCurrentPosition(position);
         mainView.showConfirmDialog();
     }
+
 
     @Override
     public void onFinishDeleteUser() {

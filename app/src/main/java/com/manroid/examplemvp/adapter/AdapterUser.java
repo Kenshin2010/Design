@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -64,6 +65,7 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.Holder> {
 
     public class Holder extends RecyclerView.ViewHolder {
         TextView txtAddress, txtName;
+        ImageView imgDelete;
         LinearLayout lnUser;
 
         public Holder(View view) {
@@ -71,9 +73,11 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.Holder> {
 
             txtAddress = (TextView) view.findViewById(R.id.txt_address);
             txtName = (TextView) view.findViewById(R.id.txt_name);
+            imgDelete = (ImageView) view.findViewById(R.id.img_delete);
             lnUser = (LinearLayout) view.findViewById(R.id.ln_user);
 
-            lnUser.setOnClickListener(new View.OnClickListener() {
+
+            imgDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     mainPresenter.onClickDeleteItem(getAdapterPosition());
