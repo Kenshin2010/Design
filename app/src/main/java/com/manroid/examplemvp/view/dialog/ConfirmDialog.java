@@ -14,6 +14,7 @@ import com.manroid.examplemvp.util.Util;
  */
 
 public class ConfirmDialog extends BaseDialog {
+
     private MainPresenter mainPresenter;
 
     public ConfirmDialog(Context context, MainPresenter mainPresenter) {

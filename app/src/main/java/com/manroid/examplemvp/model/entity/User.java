@@ -5,6 +5,7 @@ package com.manroid.examplemvp.model.entity;
  */
 
 public class User {
+
     private String name;
     private String address;
 
